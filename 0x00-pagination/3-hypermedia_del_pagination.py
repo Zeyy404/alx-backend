@@ -48,15 +48,19 @@ class Server:
         data = []
         current_index = index
 
-        while len(data) < page_size and current_index in indexed_dataset:
-            data.append(indexed_dataset[current_index])
+        while len(data) < page_size:
+            if current_index in indexed_dataset:
+                data.append(indexed_dataset[current_index])
             current_index += 1
+
+            if len(data) == page_size:
+                break
 
         next_index = index + page_size if len(data) == page_size else None
 
         return {
             'index': index,
             'next_index': next_index,
-            'page_size': len(page_size),
+            'page_size': page_size,
             'data': data
         }
