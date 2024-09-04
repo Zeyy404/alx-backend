@@ -1,9 +1,7 @@
 #!/usr/bin/env python3
 """class LIFOCache module"""
 from collections import OrderedDict
-
-
-BaseCaching = __import__('BaseCaching').base_caching
+from base_caching import BaseCaching
 
 
 class LIFOCache(BaseCaching):
