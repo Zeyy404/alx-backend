@@ -24,6 +24,7 @@ class FIFOCache(BaseCaching):
             print(f"DISCARD: {first_key}")
 
         self.cache_data[key] = item
+        self.cache_data.move_to_end(key, last=True)
 
     def get(self, key):
         """Returns the value in `self.cache_data` linked to `key`."""
