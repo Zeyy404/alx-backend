@@ -19,12 +19,14 @@ class FIFOCache(BaseCaching):
         if key is None or item is None:
             return
 
-        if len(self.cache_data) > BaseCaching.MAX_ITEMS:
+        if key in self.cache_data:
+            self.cache_data.move_to_end(key)
+
+        if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
             first_key, _ = self.cache_data.popitem(last=False)
             print(f"DISCARD: {first_key}")
 
         self.cache_data[key] = item
-        self.cache_data.move_to_end(key, last=True)
 
     def get(self, key):
         """Returns the value in `self.cache_data` linked to `key`."""
