@@ -2,7 +2,7 @@
 """class BasicCache module"""
 
 
-BaseCaching = __import__('BaseCaching').base_caching.py
+BaseCaching = __import__('BaseCaching').base_caching
 
 
 class BasicCache(BaseCaching):

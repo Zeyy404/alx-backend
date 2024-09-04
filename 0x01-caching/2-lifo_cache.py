@@ -3,7 +3,7 @@
 from collections import OrderedDict
 
 
-BaseCaching = __import__('BaseCaching').base_caching.py
+BaseCaching = __import__('BaseCaching').base_caching
 
 
 class LIFOCache(BaseCaching):
